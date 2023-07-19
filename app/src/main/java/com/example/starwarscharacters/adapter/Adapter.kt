@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.starwarscharacters.R
 import com.example.starwarscharacters.databinding.RecyclerViewItemLayoutBinding
 
-class Adapter(private var itemsList: List<AdapterItems>, private val addToFavorite: (Int) -> Boolean) :
+class Adapter(private var itemsList: List<AdapterItem>, private val addToFavorite: (Int) -> Boolean) :
     RecyclerView.Adapter<Adapter.ViewHolder>() {
 
     inner class ViewHolder(val binding: RecyclerViewItemLayoutBinding) :
@@ -26,7 +26,7 @@ class Adapter(private var itemsList: List<AdapterItems>, private val addToFavori
             nameTV.text = itemsList[position].name
             subInfoTV.text = itemsList[position].subInfo
             addToFavBt.setOnClickListener {
-                addToFavBt.setImageResource(if(addToFavorite(position)) R.drawable.favorite_active_image else R.drawable.favorite_image)
+                addToFavBt.setImageResource(if(addToFavorite(itemsList[position].id.toInt())) R.drawable.favorite_active_image else R.drawable.favorite_image)
             }
         }
     }

@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.android.volley.Request
 import com.android.volley.toolbox.StringRequest
@@ -13,6 +14,7 @@ import com.android.volley.toolbox.Volley
 import com.example.starwarscharacters.ElementModel
 import com.example.starwarscharacters.SharedPreferences
 import com.example.starwarscharacters.adapter.Adapter
+import com.example.starwarscharacters.adapter.AdapterItem
 import com.example.starwarscharacters.databinding.MainLayoutBinding
 import org.json.JSONObject
 
@@ -32,12 +34,23 @@ class MainFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.myBt.setOnClickListener {
-            //MAIN.navController.navigate(R.id.action_mainFragment_to_characterFragment)
+            val action =
+                MainFragmentDirections.actionMainFragmentToCharacterFragment()
+            findNavController().navigate(action)
             getResult()
         }
 
         binding.recyclerView.layoutManager = LinearLayoutManager(requireContext())
-        val adapter = Adapter(listOf()){id-> //TODO закинуть сюда нужные данные вместо listOf()
+        val adapterList = mutableListOf<AdapterItem>()
+        /*массивДанных.forEach {id ->
+            // adapterList.add
+            val adapterItem = AdapterItem()
+            adapterItem.id = id
+            adapterItem.name = "name" // TODO заменить на нужное
+            adapterItem.subInfo = "subInfo" // TODO заменить на нужное
+            adapterList.add(adapterItem)
+        }*/
+        val adapter = Adapter(adapterList){id-> //TODO закинуть сюда нужные данные вместо listOf()
          SharedPreferences.addOrRemoveFavorite(id.toString())
         }
         binding.recyclerView.adapter = adapter

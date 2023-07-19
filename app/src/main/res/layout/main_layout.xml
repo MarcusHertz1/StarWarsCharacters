@@ -7,6 +7,24 @@
     android:background="@color/backCharterBT">
 
     <com.google.android.material.button.MaterialButton
+        android:id="@+id/btBack"
+        android:layout_width="55dp"
+        android:layout_height="65dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="@color/backCharterBT"
+        android:text=""
+        app:cornerRadius="38dp"
+        app:icon="@drawable/back_arrow"
+        app:iconTint="@color/black"
+        android:visibility="invisible"
+        tools:visibility="visible"
+        app:layout_constraintEnd_toEndOf="@+id/myBt"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/myBt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -18,17 +36,16 @@
         android:backgroundTint="@color/favoriteCharterBT"
         app:cornerRadius="25dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="@+id/btBack"/>
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginTop="16dp"
         android:paddingHorizontal="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/myBt">
+        app:layout_constraintTop_toBottomOf="@+id/btBack">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerView"

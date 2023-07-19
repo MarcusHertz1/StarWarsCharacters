@@ -12,13 +12,13 @@
         tools:layout="@layout/main_layout">
         <action
             android:id="@+id/action_mainFragment_to_characterFragment"
-            app:destination="@id/characterFragment" />
+            app:destination="@id/FavoriteFragment" />
     </fragment>
     <fragment
-        android:id="@+id/characterFragment"
-        android:name="com.example.starwarscharacters.fragment.CharacterFragment"
-        android:label="CharacterFragment"
-        tools:layout="@layout/character_layout">
+        android:id="@+id/FavoriteFragment"
+        android:name="com.example.starwarscharacters.fragment.FavoriteFragment"
+        android:label="FavoriteFragment"
+        tools:layout="@layout/main_layout">
         <action
             android:id="@+id/action_characterFragment_to_mainFragment"
             app:destination="@id/mainFragment" />
