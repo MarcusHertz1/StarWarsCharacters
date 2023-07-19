@@ -6,10 +6,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.android.volley.Request
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import com.example.starwarscharacters.ElementModel
+import com.example.starwarscharacters.SharedPreferences
+import com.example.starwarscharacters.adapter.Adapter
 import com.example.starwarscharacters.databinding.MainLayoutBinding
 import org.json.JSONObject
 
@@ -33,6 +36,11 @@ class MainFragment : Fragment() {
             getResult()
         }
 
+        binding.recyclerView.layoutManager = LinearLayoutManager(requireContext())
+        val adapter = Adapter(listOf()){id-> //TODO закинуть сюда нужные данные вместо listOf()
+         SharedPreferences.addOrRemoveFavorite(id.toString())
+        }
+        binding.recyclerView.adapter = adapter
     }
 
     private fun getResult(){

@@ -2,27 +2,35 @@
 
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal"
     android:padding="8dp">
 
 
-    <TextView
-        android:id="@+id/charterNameTV0"
+    <LinearLayout
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"
         android:layout_weight="1"
-        android:text="@string/charter_name"
-        android:textColor="@color/black"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/imageView0"
-        app:layout_constraintStart_toStartOf="@+id/imageView0"
-        app:layout_constraintTop_toBottomOf="@+id/imageView0" />
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/nameTV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/charter_name"
+            android:textColor="@color/black" />
+        <TextView
+            android:id="@+id/subInfoTV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/charter_name"
+            android:textColor="@color/black" />
+
+    </LinearLayout>
 
     <ImageButton
+        android:id="@+id/addToFavBt"
         android:layout_width="48dp"
         android:layout_height="48dp"
         android:background="@null"
