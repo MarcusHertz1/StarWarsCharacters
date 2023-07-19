@@ -9,9 +9,9 @@ import androidx.fragment.app.Fragment
 import com.android.volley.Request
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
-import com.example.starwarscharacters.MAIN
-import com.example.starwarscharacters.R
+import com.example.starwarscharacters.ElementModel
 import com.example.starwarscharacters.databinding.MainLayoutBinding
+import org.json.JSONObject
 
 class MainFragment : Fragment() {
     private lateinit var binding: MainLayoutBinding
@@ -36,19 +36,30 @@ class MainFragment : Fragment() {
     }
 
     private fun getResult(){
-        val url = "http https://swapi.dev/api/people/1/"
+        val url = "https://swapi.dev/api/people/1/"
         val queue = Volley.newRequestQueue(context)
         val stringRequest = StringRequest(
             Request.Method.GET,
             url,
             {
-                    response->
-                Log.d("LOGINOUT","Res: $response")
+                    result-> parseData(result)
+                //Log.d("LOGINOUT","Res: $result")
             },
             {
-                Log.d("LOGINOUT","Err: $it")
+                error->
+                Log.d("LOGINOUT","Err: $error")
             }
         )
         queue.add(stringRequest)
+    }
+
+    private fun parseData (result: String) {
+        val mainObject = JSONObject(result)
+        val item = ElementModel(
+            mainObject.getString("name"),
+            mainObject.getString("gender"),
+        )
+        Log.d("LOGINOUT","Res: ${item.peopleName}")
+        Log.d("LOGINOUT","Res: ${item.peopleGender}")
     }
 }
