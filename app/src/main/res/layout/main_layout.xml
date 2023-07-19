@@ -1,35 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/app_bg">
-
-    <!--com.google.android.material.button.MaterialButton
-        android:id="@+id/allBt"
-        android:layout_width="65dp"
-        android:layout_height="75dp"
-        android:layout_marginStart="22dp"
-        android:layout_marginTop="75dp"
-        android:backgroundTint="@color/mainBT"
-        android:contentDescription="@string/all_bt"
-        android:paddingHorizontal="21dp"
-        android:text=""
-        app:cornerRadius="25dp"
-        app:icon="@drawable/all_image"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/allTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/all"
-        app:layout_constraintEnd_toEndOf="@+id/allBt"
-        app:layout_constraintStart_toStartOf="@+id/allBt"
-        app:layout_constraintTop_toBottomOf="@+id/allBt" />-->
+    android:background="@color/backCharterBT">
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/myBt"
@@ -37,28 +12,19 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="4dp"
-        android:backgroundTint="@color/mainBT"
         android:contentDescription="@string/my_bt"
         android:paddingHorizontal="18dp"
         android:text="@string/my_bt"
+        android:backgroundTint="@color/favoriteCharterBT"
         app:cornerRadius="25dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
-
-    <!--<TextView
-        android:id="@+id/myTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/my"
-        app:layout_constraintEnd_toEndOf="@+id/myBt"
-        app:layout_constraintStart_toStartOf="@+id/myBt"
-        app:layout_constraintTop_toBottomOf="@+id/myBt" />-->
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:layout_marginTop="16dp"
         android:paddingHorizontal="16dp"
-        android:paddingTop="40dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
